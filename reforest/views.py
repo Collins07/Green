@@ -15,6 +15,8 @@ from xhtml2pdf import pisa
 from io import BytesIO
 
 from django.template.loader import render_to_string, get_template
+from forests.models import Forest
+
 
 
 
@@ -102,7 +104,37 @@ def add_trees(request):
 
 
 def home(request):
-    return render(request, 'reforest/home.html')
+
+    reforest = Reforest.objects.order_by('-date')
+    total_trees = reforest.aggregate(total_trees_planted=Sum('trees_planted'))['total_trees_planted']
+
+    forest = Forest.objects.order_by('-date')
+    total_trees_accounted = forest.aggregate(total_trees_planted=Sum('trees_planted'))['total_trees_planted']
+
+    highest_entry = reforest.order_by('-trees_planted').first()
+    highest_group = highest_entry.description if highest_entry else None
+
+
+    
+
+    paginator=Paginator(reforest, 4)
+    page_number = request.GET.get('page')
+    page_obj= Paginator.get_page(paginator,page_number)
+
+    
+    context = {
+        'reforest': reforest,
+        'page_obj': page_obj,
+        'total_trees_accounted': total_trees_accounted,
+        'total_trees': total_trees,
+        'highest_group': highest_group,
+        'paginator': paginator
+      
+
+    }
+
+
+    return render(request, 'reforest/home.html', context)
 
 
 def about(request):
