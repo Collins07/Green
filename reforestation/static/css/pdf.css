@@ -1,0 +1,55 @@
+ /* Add your desired CSS styles here */
+ #mantra{
+    color: rgb(76, 90, 76);
+    margin-left: 241px;
+    margin-top: -200px;
+    }
+    #title{
+        margin-left: 15%;
+        color: rgb(85, 85, 85);
+        text-decoration: underline;
+        margin-top: 3%;
+        margin-left: 170px;
+        font-size: 17px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #bfe4a7;
+    }
+    #signatory {
+        display: flex;
+    }
+    #company {
+        font-size: 30px;
+        margin-left: 250px;
+        color: green;
+    }
+    #col2{
+        margin-bottom: -100px;
+    }
+    .paragraph{
+        font-size: 13px;
+    }
+    .table2{
+        border: none;
+    }
+    #header{
+        border: none;
+        background-color: white;
+    }
+    #container-sign{
+        margin-top: 50px;
+    }
+    #thead{
+        height: 10px;
+    }
+    .thead1{
+        font-size: 15px;
+    }
