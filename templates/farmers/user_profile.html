@@ -1,0 +1,40 @@
+{% extends 'base_farmers.html' %}
+{% load bootstrap5 %}
+{% load cloudinary %}
+
+
+{% block content %}
+<div class="container" style="margin-top:8%">
+    <div class="content-section">
+        <div class="media">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <img id="round" class="rounded-circle account-img" src="{{ user_prof.profile.profile_photo.url }}">
+                    </div>
+                    <div class="col-md-6 mt-3">
+
+
+                        <div class="media-body">
+                            <div class="account-heading">
+                                <span class="mr-3 text-secondary username">{{ user_prof.username }}</span>
+   
+                            </div>
+                        </div>
+
+                        
+                        <!-- <h5>{{ profile.name }}</h5>
+                        <p class="text-secondary">{{ user.profile.bio }}</p> -->
+
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="mt-4">
+    
+   
+</div>
+{% endblock %} 

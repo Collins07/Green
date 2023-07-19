@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="home-content mb-4">
+
+
+ <div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr class="table-success">
+                    <th scope="row fw-normal">GreenLead's main mission is to achieve <i>" sustainability through accountability "</i>. Check how accountable you are in your activities</th>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+        <div class="col-1">
+        
+        </div>
+    </div>
+ </div>
+
+
+
+<div class="col-12">
+<div class="sales-boxes">
+    <div class="recent-sales box">
+      <div class="title">Accountability Score</div>
+      <p class="m-3">  The <strong>difference</strong> and the <strong>percentage</strong> are calculated based on your 
+        very first entry and the LATEST subsequent update on the same. The higher the percentage, the better you are in being
+        accountable towards protecting the trees you have planted. Remember it's not about the <i>the number of trees you plant</i> but <i>how many of those you plant reach maturity.</i>
+      </p>
+
+    <div class="container p-2">
+    
+
+    <div class="row">
+        <div class="col-md-8 d-flex justify-content-between">
+            <div id="export-csv" class="col-md-6">
+                <a href="{% url 'export-difference-pdf' %}" class="btn btn-sm btn-outline-danger">Download PDF</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div id="search-input" class="form-group mb-3 ">
+                <input type="text" id="searchField4" class="form-control" placeholder="Search">
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div class="app-table">
+        <table class="table table-stripped table-hover ">
+            <thead>
+                <tr>
+                   <th>Group name</th>
+                   <th>Number of trees</th>
+                   <th>Percentage</th>
+                </tr>
+            </thead>
+    
+            <tbody style="font-size: 12px;">
+                {% for entry in diff_trees %}
+                <tr>
+                    <td>{{ entry.description }}</td>
+                    <td>{{ entry.trees_difference }}</td>
+                    <td>{{ entry.percentage }}</td>
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+
+    <div class="table-output">
+      <table class="table table-stripped table-hover ">
+          <thead>
+              <tr>
+                <th>Group name</th>
+                <th>Number of trees</th>
+                <th>Percentage</th>
+              </tr>
+          </thead>
+  
+          <tbody class="table-body">
+
+             
+          </tbody>
+      </table>
+  </div>
+
+
+  <div class="row paginator-container">
+    <div id="pagination" class="col-md-8 fw-bold">
+        Showing page {{ diff_trees.number }} of {{ diff_trees.paginator.num_pages }}
+    </div>
+
+    <div class="col-md-4">
+        <ul class="pagination align-right float-right mr-auto">
+            {% if diff_trees.has_previous %}
+                <li {% if diff_trees.number == 1 %}class="page-item active"{% endif %}>
+                    <a href="?page=1" class="page-link">&laquo; 1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ diff_trees.previous_page_number }}">Previous</a>
+                </li>
+            {% endif %}
+
+            {% if diff_trees.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ diff_trees.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ diff_trees.paginator.num_pages }}">{{ diff_trees.paginator.num_pages }} &raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+  
+
+    
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="{% static 'js/searchDifference.js' %}"></script>
+
+{% endblock %}

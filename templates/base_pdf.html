@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <style>
+            /* Add your desired CSS styles here */
+            #mantra{
+            color: rgb(76, 90, 76);
+            margin-left: 10%;
+            }
+            #title{
+                margin-left: 15%;
+                color: rgb(85, 85, 85);
+                text-decoration: underline;
+                margin-top: 3%;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            th {
+                background-color: #bfe4a7;
+            }
+        </style>
+    </head>
+    <body>
+
+         <!-- badge -->
+    <div class="container">
+        <div class="row">
+            <div id="col1" class="col-4"></div>
+            <div id="col2" class="col-4 mt-5  d-flex justify-content-center">
+                <img src="{% static 'img/greenlg1.jpg' %}"" alt="" class="bi me-2" width="93" height="88" role="img" >
+                <h1 class="fw-bold text-center mt-3">GreenLead</h1>
+            </div>
+            <div id="col3" class="col-4"></div>
+        </div>
+    </div>
+    
+    <!-- company name -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 mt-1 justify-content-center">
+                <p id="mantra" class="text-center "><strong><i>Sustainability through accountability</i></strong></p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+
+    <!-- title -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 mt-5 justify-content-center">
+                <h4 id="title" class="fw-bold">Reforestation/Afforestation periodic records</h4>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    
+
+   <!-- Introduction -->
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12 mt-3 ">
+            <p>
+                This document contains information as filled by tree-planting groups and approved by #GreenLead. The document can be accessed by the public but can ONLY be used by GreenLead for other official businesses.
+                The information here is of updated periodic records ( 3 month intervals ) of groups conducting reforestation and afforestation activities as our bigger mission towards fostering for accountability in tree-planting initiatives.
+            </p>
+        
+       </div>
+    </div>
+</div>
+
+<!-- data/information -->
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12 mt-3 ">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trees planted</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for forest in reforest_entries %}
+                    <tr>
+                        <td>{{ forest.trees_planted }}</td>
+                        <td>{{ forest.description }}</td>
+                        <td>{{ forest.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+       </div>
+    </div>
+</div>
+
+
+     <!-- signatories -->
+
+     <div class="container">
+        <div class="row">
+            
+            <div class="col-12 mt-5 ">
+                <p>By signing below, I acknowledge that I have read and verified the information provided above in this document</p>
+            
+        </div>
+    </div>
+
+
+    <div class="container mb-3 mt-2">
+        <div class="row">
+            
+            <div class="col-6 ">
+                <h5>Founder</h5>
+                <p class="mt-4"> Name: ___________________________________</p>
+                <p>Signed/Stamp: _________________________________</p>
+                <P>Date: ________________________________</P>
+            </div>
+            <div class="col-3"></div>
+            
+            <div class="col-3 ">
+                <h5>Co-Founder</h5>
+                <p class="mt-4"> Name: __________________________________</p>
+                <p>Signed/Stamp: ____________________________</p>
+                <P>Date: ________________________________</P>
+            </div>
+
+        </div>
+    </div>
+        
+
+            
+
+
+    
+        
+
+        <!-- Bootstrap core JS-->
+       
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+        
+    </body>
+</html>

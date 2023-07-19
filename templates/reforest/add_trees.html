@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">Trees</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add trees</li>
+        </ol>
+      </nav>
+  </div>
+
+
+  <!-- register your activities -->
+    <div class="container home-content mb-4">
+        <div class="card">
+            <div class=" card-body">
+                <form class="" action="{% url 'add_trees' %}" method="post">
+                    {% include 'partials/_messages.html' %}
+                    {% csrf_token %}
+    
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Number of trees planted</label>
+                    <input type="number" class=" form-control form-control-sm" name="trees_planted" value="{{values.trees_planted}}">
+                </div>
+    
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Group name</label>
+                    <input type="text" class="form-control form-control-sm" name="description"  value="{{values.description}}">
+                </div>
+                
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Category</label>
+                    <select class="form-control" name="category" id="">
+    
+                        {% for category in categories %}
+    
+                        <option name="category" value="{{category.name}}">{{category.name}}</option>
+    
+                        {% endfor %}
+                    
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Date Planted</label>
+                    <input type="date" class=" form-control form-control-sm" name="date">
+                </div>
+               
+                <input type="submit" value="Submit" class="btn btn-success btn-sm mt-5">
+            </form>
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}

@@ -1,0 +1,221 @@
+{% load static %}
+
+{% load bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <style>
+            /* Add your desired CSS styles here */
+            
+            .mantra{
+            color: rgb(10, 10, 10);
+            
+            }
+            #title{
+                color: rgb(85, 85, 85);
+                text-decoration: underline;
+                margin-top: 3%;
+                margin-left: 270px;
+                font-size: 17px;
+            }
+            #company {
+                font-size: 30px;
+                color: green;
+                font-weight: bolder;
+            }
+            #logo{
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            th {
+                background-color: #bfe4a7;
+            }
+            #signatory {
+                display: flex;
+            }
+            
+            
+            .paragraph{
+                font-size: 12px;
+            }
+            .table2{
+                border: none;
+            }
+            #header{
+                border: none;
+                background-color: white;
+            }
+            #container-sign{
+                margin-top: 50px;
+            }
+            #thead{
+                height: 10px;
+            }
+            .thead1{
+                font-size: 13px;
+            }
+            #number-entries{
+                width: 45px;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+
+  
+    
+    <!-- company name -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                
+                <p id="logo"><span id="company" class="fw-bold text-center">GreenLead</span> <br>
+                    <span class="mantra"><strong><i>Sustainability through accountability</i></strong></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- title -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5 text-center">
+                <h4 id="title" class="fw-bold">Accountability Score</h4>
+            </div>
+        </div>
+    </div>
+    
+
+   <!-- Introduction -->
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12 mt-3 ">
+            <p class="paragraph">
+                At GreenLead, our primary objective is to achieve <strong>sustainability through accountability</strong>. That's why we have developed a unique accountability scoring system for tree-planting activities. 
+                This scoring system measures the <em>difference</em> between a group's initial entry record and their latest update record for the same activity, calculating a <em>percentage</em> that reflects their level of accountability. 
+                The higher the percentage, the higher the score, indicating areas such as responsibility, credibility, integrity, and improvement opportunities for the group.
+            </p>
+            <p class="paragraph">
+                This document contains information as filled our by reforestation and afforestation groups and approved by #GreenLead. The document can be accessed by the public but can <strong>ONLY</strong> be used by GreenLead for other official businesses.
+        
+       </div>
+    </div>
+</div>
+
+<!-- data/information -->
+<div class="container">
+    <div class="row">
+        
+        <div class="col-12 mt-3 ">
+            
+            <table>
+                <thead class="thead1">
+                    <tr>
+                        <th>#</th>
+                        <th>Group Name</th>
+                        <th>Difference in No. of trees</th>
+                        <th>Percentage score</th>
+                    </tr>
+                </thead>
+                <tbody class="paragraph">
+                    {% for entry in diff_trees %}
+                    <tr>
+                        <td id="number-entries">{{ forloop.counter }}.</td>
+                        <td>{{ entry.description }}</td>
+                        <td>{{ entry.trees_difference }}</td>
+                        <td>{{ entry.percentage }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+       </div>
+    </div>
+</div>
+
+
+     <!-- signatories -->
+
+     <div class="container" id="container-sign">
+        <div class="row">
+            
+            <div class="col-12 mt-5 ">
+                <p id="container-sign" class="paragraph">By signing below, I acknowledge that I have read and verified the information provided above in this document</p>
+            
+           </div>
+    </div>
+     </div>
+
+
+    <div id="signatory" class="container mb-3 mt-2">
+        <div  class="row">
+
+            <table class="table2">
+                <thead id="thead">
+                    <tr>
+                        <th id="header">.</th>
+                        <th id="header">.</th>
+                    </tr>
+                </thead>
+                <tbody class="paragraph">
+                    <tr>
+                        <td id="header">
+                            <div class="col-6 ">
+                                <h5><strong>Founder</strong></h5>
+                                <p class="mt-4" > Name: ___________________________________</p>
+                                <p >Signed/Stamp: ______________________________</p>
+                                <P>Date: ________________________________</P>
+                            </div>
+                        </td>
+                        <td id="header">
+                            <div class="col-6 ">
+                                <h5><strong>Co-Founder</strong></h5>
+                                <p class="mt-4" > Name: ___________________________________</p>
+                                <p >Signed/Stamp: ______________________________</p>
+                                <P>Date: ________________________________</P>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+    
+        </div>
+    </div>
+        
+
+            
+
+
+    
+        
+
+        <!-- Bootstrap core JS-->
+       
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+        
+    </body>
+</html>

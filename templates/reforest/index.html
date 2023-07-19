@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+<div class="home-content mb-4">
+    <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Number of entries</div>
+          <div class="number">{{ paginator.count }}</div>
+          
+        </div>
+        <i id="check" class='bx bxs-check-circle'></i>
+      </div>
+      
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Total trees Planted</div>
+          <div class="number1">{{ total_trees }}</div>
+          
+        </div>
+        <i id="check" class='bx bx-recycle fw-bold' ></i>
+      </div>
+    
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic text-start">Group with highest entry</div>
+          <div class="number1">{{ highest_group }}</div>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+
+
+    <div class="row mt-4">
+      <div class="col-10"></div>
+      <div class="col-md-2 mb-3">
+          {% if user.is_authenticated %}
+          <a id="add-trees" class="btn btn-success " href="{% url 'add_trees' %}">Add </a>          
+          {% else %}
+    
+          {% endif %} 
+          
+       </div>
+  </div>
+
+  {% include 'partials/_messages.html' %}
+  
+
+
+
+    <div class="sales-boxes responsive">
+      <div class="recent-sales box">
+        <div class="title">Recent data</div>
+        <p class="m-3">Under <strong>name</strong> category, enter the name of your group and the county you carried out your tree-planting initiative like <strong>Group A - Nairobi county</strong>
+          If you are making more than one entry for your group, indicate the round of entry in <strong>(..)</strong> after the county name i.e <strong>Group A - Nairobi county (round 1)</strong> </p>
+
+
+        <div class="container mt-3">
+          {% if reforest.count %}
+      
+          <div class="row">
+              <div id="export-csv" class="col-md-8 d-flex justify-content-between">
+                    <div id="export-csv" class="col-md-6">
+                      <a href="{% url 'export-csv-reforest' %}" class="btn btn-sm btn-outline-success btn-rounded">Export CSV</a>
+                  </div>
+                  <div id="export-csv" class="col-md-6">
+                      <a href="{% url 'export-pdfs' %}" class="btn btn-sm btn-outline-danger btn-rounded">Export PDF</a>
+                  </div>
+              </div>
+              <div class="col-md-4">
+      
+      
+                  <div id="search-input" class="form-group mb-3 ">
+                      <input type="text" id="searchField" class="form-control" placeholder="Search">
+                  </div>
+      
+              </div>
+          </div>
+      
+      
+          <div class="app-table responsive">
+              <table class="table table-stripped table-hover">
+                  <thead>
+                      <tr>
+                         <th>Trees planted</th>
+                         <th>Name</th>
+                         <th>Category</th>
+                         <th>Date</th>
+                      </tr>
+                  </thead>
+          
+                  <tbody style="font-size: 12px;">
+                    
+                      {% for reforest in page_obj %}
+                      <tr>
+                          <td>{{reforest.trees_planted}}</td>
+                          <td>{{reforest.description}}</td>
+                          <td>{{reforest.category}}</td>
+                          <td>{{reforest.date}}</td>
+          
+                          <!-- <td><a id="edit-trees" href="{% url 'reforest-edit' reforest.id %}" class="btn btn-secondary btn-sm">Edit</a></td> -->
+                      </tr>
+                      {% endfor %}
+                    
+                  </tbody>
+              </table>
+          </div>
+          
+          
+      
+          <div class="table-output">
+              <table class="table table-stripped table-hover ">
+                  <thead>
+                      <tr>
+                         <th>Trees planted</th>
+                         <th>Name</th>
+                         <th>Category</th>
+                         <th>Date</th>
+                      </tr>
+                  </thead>
+          
+                  <tbody class="table-body">
+      
+                     
+                  </tbody>
+              </table>
+          </div>
+      
+            <div class="row paginator-container">
+      
+              <div id="pagination" class="col-md-8 fw-bold">
+                  Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+              </div>
+      
+              <div class="col-md-4">
+                  <ul class="pagination align-right float-right mr-auto ">
+                      {% if page_obj.has_previous %}
+                      <li {% if page_obj.number == 1 %} class="page-item active" {% endif %}><a href="?page=1" class="page-link"> &laquo; 1</a></li>
+                      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                       {% endif %}
+                      
+                       {% if page_obj.has_next %}
+                      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                      <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator_num_pages }}">{{ page_obj.paginator_num_pages }} &raquo;</a></li>
+                      {% endif %}
+                  </ul>
+              </div>
+            </div>
+          
+          {% endif %}
+      </div>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+
+<script src="{% static 'js/search.js' %}"></script>
+
+{% endblock %}

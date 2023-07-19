@@ -1,0 +1,50 @@
+{% extends 'base_farmers.html' %}
+{% load bootstrap5 %}
+{% load cloudinary %}
+
+{% block content %}
+<div class="mt-2 container" >
+    <div id="single-post" class="card mb-3">
+        <div class="row">
+            <div class="col-md-8 m-3">
+
+                <img id="comment-image" src="{{image.image.url}}"  class="card-img" width="100%"/>
+            </div>
+            <div class="col-md-3 mt-2">
+                <img  src="{{image.user.profile.profile_photo.url}}" class="rounded-circle border ml-3 mt-2  mr-3"
+                     alt="{{image.user.user.username}}" width="35" height="35">
+
+                     <div class="m-2 caption"><p><strong class="single-post-username">{{image.user.username|title}}:</strong> {{image.caption}}</p></div>
+
+
+                <h6 class="single-post-comment m-2">Comments !!</h6>
+                {% for comment in image.comments.all %}
+                <div class="comment ">
+                    <div class="ml-2"><strong>{{ comment.profile.username }}</strong> <span class="text-secondary">{{ comment.comment }}</span>
+                    </div>
+                    
+                </div>
+                {% empty %}
+                <p class="m-2">No comments here yet</p>
+                {% endfor %}
+                <hr style="width:96%;">
+
+                <form class="form" action="" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="row" id="comment-box">
+                        <div class="col-md-10">
+                            {% bootstrap_form form%}
+                        </div>
+                        <div class="col-md-2 mt-4" >
+                            <button type="submit" class="btn btn-sm btn-success" style="margin-top:14px; margin-left:-10px">Comment</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

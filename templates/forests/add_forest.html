@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'forest' %}">Trees</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add trees</li>
+        </ol>
+      </nav>
+  </div>
+
+
+    <div class="container p-4 mt-5">
+        <div class="card mt-5">
+            <div class=" card-body">
+                <form class="" action="{% url 'add_forest' %}" method="post">
+                    {% include 'partials/_messages.html' %}
+                    {% csrf_token %}
+    
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Number of trees</label>
+                    <input type="number" class=" form-control form-control-sm" name="trees_planted" value="{{values.trees_planted}}">
+                </div>
+    
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Group name</label>
+                    <input type="text" class="form-control form-control-sm" name="description"  value="{{values.description}}">
+                </div>
+                
+               
+    
+                <div class="form-group">
+                    <label class="fw-bold mt-2" for="">Date of update</label>
+                    <input type="date" class=" form-control form-control-sm" name="date">
+                </div>
+               
+                <input type="submit" value="Submit" class="btn btn-success btn-sm mt-5">
+            </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

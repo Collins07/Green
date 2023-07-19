@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="home-content mb-4" style="background-color: white;">
+ <div class="container">
+    <div class="row mb-2">
+        <div class="col">
+            <h2 class="text-success ml-4 fw-bold text-underline mb-3">Launching soon !!</h2>
+
+            <!--  main content -->
+
+            <div class="container " >
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3  shadow-lg " >
+                  <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                    <h2 class="display-8 fw-bold lh-2">Subscribe and get access to enhanced data analytics, reporting capabilities and personalized recommendations as a premium user !</h2>
+                    <p class="lead">
+                        This includes more in-depth insights, trend analysis, custom reports and benchmarking against industry standards. 
+                        We use machine learning models that analyse user data and provide you with personalized recommendations and reports.
+                    </p>
+                    
+                  </div>
+                  <div class="col-lg-5 ">
+                      <img class="rounded-lg-3" src="{% static 'img/undraw.png' %}" alt="" width="100%" >
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="container">
+            
+                <div class="mt-3 pricing-header p-3 pb-md-4 mx-auto text-center">
+                    <h2 class="display-4 fw-normal">Pricing</h2>
+                    
+                  </div>
+                
+                
+                  <main>
+                    <div class="row row-cols-1 row-cols-md-2 mb-3 text-center">
+                      <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-success">
+                          <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Standard</h4>
+                          </div>
+                          <div class="card-body">
+                            <h3 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h3>
+                            <ul class="list-unstyled mt-3 mb-5">
+                              <li>
+                                Standard services include advanced trend analysis on top of what we have available on the dashboard.
+                                This is very vital to groups running multiple projects simultaneously in monitoring their efforts.
+                              </li>
+                             
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-success">Get Deal !</button>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-success">
+                          <div class="card-header py-3 text-white bg-success border-success">
+                            <h4 class="my-0 fw-normal">Premium</h4>
+                          </div>
+                          <div class="card-body">
+                            <h3 class="card-title pricing-card-title"><small class="text-muted fw-light"></small></h3>
+                            <ul class="list-unstyled mt-3 mb-4">
+                              <li>
+                                Premium services include all standard features + personalized recommendations like optimal tree planting strategies
+                                based on geographical location, soil type, climate conditions etc
+                              </li>
+                              <br>
+                              
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-success">Get Deal !</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+                
+                    <div class="table-responsive mb-5">
+                      <table class="table text-center">
+                        <thead>
+                          <tr>
+                            <th style="width: 34%;"></th>
+                            <th style="width: 25%;">Standard</th>
+                            <th style="width: 25%;">Premium</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="text-start">Trend analysis</th>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Custom reports and priority customer support</th>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Multiple project management</th>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Optimal tree planting strategies e.g species selection</th>
+                            <td></td>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Calculating your carbon sequestration</th>
+                            <td></td>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Periodic update reminders</th>
+                            <td></td>
+                            <td><i class='bx bxs-check-circle fs-2 text-success'></i></td>
+                          </tr>
+                        </tbody>
+                
+                        <tbody>
+                          
+                          
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </main>
+            
+              </div>
+
+
+            <!-- end main content -->
+
+         </div>
+    </div>
+ </div>
+
+
+
+</div>
+
+
+
+{% endblock %}

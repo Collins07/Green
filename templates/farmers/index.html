@@ -1,0 +1,182 @@
+{% extends 'base_farmers.html' %}
+{% load static %}
+
+{% load bootstrap5 %}
+
+
+
+
+
+{% block content %}
+
+<div id="intro-farmer" class="container mb-4">
+    <p class="m-3">
+        Register to sell seedlings on our platform and connect with other farmers. Also
+        learn on the best agricultural practices like agroforestry, regenerative agriculture, through the events and journals we share in this section
+        <a id="learn-btn" class="btn btn-sm btn-secondary fw-bold" href="{% url 'learn' %}">Here</a>
+    </p>
+</div>
+
+
+
+<div id="seedlings-post" class="container" >
+  <div class="row ">
+      <div class="col-md-7" id="main" >
+          <div class="row">
+
+                   {% if user.is_authenticated %}
+                        <button style="width: 200px; margin-left: 3%;" class="btn btn-success ml-4 mb-3 upload" data-bs-toggle="modal" data-bs-target="#imageUpload" >
+                            Upload Post
+                        </button>
+                    {% else %}
+                    <a id="nav-linking" href="{% url 'register' %}" class="mb-3 btn btn-md btn-success" style="width: 200px; margin-left: 3%; margin-top: -6px;">Register to post</a>
+                    {% endif %}
+
+            
+            
+
+            
+
+              <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog"
+                   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle">Image Upload</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="{% url 'farmer' %}" method="post" enctype="multipart/form-data" novalidate>
+                                  {% csrf_token %}
+                                  {% bootstrap_form form%}
+                                  <button class="btn btn-sm btn-success">Upload</button>
+                                  <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal">
+                                      Close
+                                  </button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+
+   
+
+    {% for image in images %}
+
+    <div id="posted-image" class="card mb-4">
+        <div class="card-title">
+            <img  src="{{image.user.profile.profile_photo.url}}" style="border-radius: 50%; margin-left: 2%;" class="rounded-circle border ml-5 mt-2  mr-3"
+                 alt="" width="45" height="45">
+            <a href="{% url 'user_profile' image.user.username %}" class="mt-2 user"><strong class="usernamecolor">{{image.user.username|title}}</strong></a>
+            <div class="caption"><p><strong></strong> {{image.caption}}</p></div>
+        </div>
+        
+        <div class="card-body mb-2">
+          <a href="{% url 'comment' image.id %}">
+            <div class="card-text">
+
+               
+              <img id="uploaded-image" src="{{image.image.url}}"  class=" card-img" height="400px " width="100%" />
+           </div>
+        </a>
+        
+              
+        </div>
+
+        <p class="post-time">{{image.date_created|timesince}} ago</p>
+
+        <span class="text-secondary ml-4 viewall"><a href="{% url 'comment' image.id %}" class="main-post-comments"></a></span>
+                
+    </div>
+    {% endfor %}
+
+</div>
+
+
+
+
+<div class="col-md-5 mt-2" >
+
+
+
+
+ 
+
+    <!-- section for all events and seminars by farmers -->
+
+    <div id="learn" class="row" >
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-11">
+            <div id="side-nav-farmers" class="card  mr-2 ml-2">
+                <br>
+                <div id="visit-users" class="card-title mt-2 ml-4 ">Check out the latest events, journals and seminars bringing farmers and their supporters together to learn on agroforestry, regenerative agriculture etc.</div>
+                <hr>
+                
+                <div id="farmers-events" class="card" >
+                    <img src="{% static 'img/events.jpg' %}" class="card-img-top " width="200px" height="250px" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        Is yur business or organization involved in Agri-business? You can't afford to miss this. Register to become an Exhibitor
+                        at the <strong>2023 Agri Africa Expo happening at KICC from 9th - 12th may</strong> <br> <br>
+                         Call: +254 790 888 333
+
+                      </p>
+                      <a href="https://agriexpo.africa/exhibitor-registartion-form/" class="btn btn-success" target="_blank">Join Us</a>
+                    </div>
+                </div>
+
+                <div id="farmers-events" class="card" >
+                    <img src="{% static 'img/agro.jpg' %}" class="card-img-top " width="200px" height="300px" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <strong>Agroforestry: A primer</strong> - is a guide to agroforestry principles and concepts - and how to use them effectively.
+                        The publication also guides a farmers' and their supporters' build their capacity to implement agroforestry principles 
+                        in the context of their local conditions <br> <br>
+                        Read/Download a free copy :
+
+                      </p>
+                      <a href="https://www.cifor-icraf.org/knowledge/publication/25264/" class="btn btn-success" target="_blank">Download</a>
+                    </div>
+                </div>
+
+                <div id="farmers-events" class="card" >
+                    <img src="{% static 'img/cifor.jpg' %}" class="card-img-top " width="200px" height="300px" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <strong>Forest tenure pathways to: GENDER EQUALITY</strong> - This practioner's guide explains how to promote gender-responsive forest tenure reform in community-based forest regimes
+                        It is designed t osupport a wide range of institutions such as government offices, non-governemental organizations, civil society organizations, donor agencies, women's
+                         organizations as well as networks and federations<br> <br>
+
+                        Read/Download a free copy :
+
+                      </p>
+                      <a href="https://www.cifor-icraf.org/knowledge/publication/7909/" class="btn btn-success" target="_blank">Download</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+
+</div>
+
+{% include 'partials/_footer.html' %}
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+{% endblock %}

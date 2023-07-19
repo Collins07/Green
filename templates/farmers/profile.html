@@ -1,0 +1,76 @@
+{% extends 'base_farmers.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="container" style="margin-top:8%">
+    <div class="content-section">
+        <div class="media">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-3">
+                        <img class="rounded-circle account-img" src="{{user.profile.profile_photo.url}}" width="220" height="220">
+                    </div>
+
+                    <div class="col-md-6 mt-3">
+                        <div class="media-body">
+                            <div class="account-heading">
+                                <span class="ml-5  username">{{ user.username }}</span>
+
+                                 <a class="btn btn-sm btn-outline-success mr-3" data-bs-toggle="modal" data-bs-target=".bd-example-modal-md"><strong>Edit Profile</strong></a>
+
+                                <a class="mt-4" data-bs-toggle="modal" data-bs-target="#ModalCenter"><i class="fa fa-cog " id="cog"></i></a>
+                            </div>
+
+                            <div class="post-details mt-3 mb-3 post">
+                                <span class="mr-5"><strong>{{images.count}}</strong> Posts</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+
+            <div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md ">
+                    <div class="modal-content">
+                        <form action="" method="post" enctype="multipart/form-data" class="m-4">
+                            {% csrf_token%}
+                            {% bootstrap_form form%}
+                            <button type="submit" class="btn btn-success btn-sm"> Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-4">
+        <h3 class="fw-bold">Your Posts</h3>
+        <div id="profile-section" class="card-columns">
+            {% for image in images %}
+               
+
+
+                <div style="width: 300px;" class="m-2 card">
+                    <p id="profile-caption" class="ml-2"><strong></strong> {{image.caption}}</p>
+                    <div class="card-body ">
+                        <img src="{{image.image.url}}" alt="{{image.caption}}" class="card-img" width="300px" height="200px">
+    
+                    </div>
+                </div>
+
+                
+      
+            {% endfor %}
+               </div>
+           </div>
+        </div>
+
+
+       
+        
+{% endblock %}

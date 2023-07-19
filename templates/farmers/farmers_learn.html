@@ -1,0 +1,70 @@
+{% extends 'base_learn.html' %}
+
+{% load static %}
+
+
+
+
+{% block content %}
+    <div id="learn" class="row" >
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-11">
+            <div id="side-nav-farmers" class="card  mr-2 ml-2">
+                <br>
+                <div id="visit-users" class="card-title mt-2 ml-4 ">Check out the latest events, journals and seminars bringing farmers and their supporters together to learn on agroforestry, regenerative agriculture etc.</div>
+                <hr>
+                
+                <div id="farmers-events" class="card" >
+                    <img src="{% static 'img/events.jpg' %}" class="card-img-top " width="200px" height="250px" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        Is yur business or organization involved in Agri-business? You can't afford to miss this. Register to become an Exhibitor
+                        at the <strong>2023 Agri Africa Expo happening at KICC from 9th - 12th may</strong> <br> <br>
+                         Call: +254 790 888 333
+
+                      </p>
+                      <a href="https://agriexpo.africa/exhibitor-registartion-form/" class="btn btn-success" target="_blank">Join Us</a>
+                    </div>
+                </div>
+
+                <div id="farmers-events" class="card" >
+                    <img src="{% static 'img/agro.jpg' %}" class="card-img-top " width="200px" height="300px" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <strong>Agroforestry: A primer</strong> - is a guide to agroforestry principles and concepts - and how to use them effectively.
+                        The publication also guides a farmers' and their supporters' build their capacity to implement agroforestry principles 
+                        in the context of their local conditions <br> <br>
+                        Read/Download a free copy :
+
+                      </p>
+                      <a href="https://www.cifor-icraf.org/knowledge/publication/25264/" class="btn btn-success" target="_blank">Download</a>
+                    </div>
+                </div>
+
+                <div id="farmers-events" class="card" >
+                    <img src="{% static 'img/cifor.jpg' %}" class="card-img-top " width="200px" height="300px" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">
+                        <strong>Forest tenure pathways to: GENDER EQUALITY</strong> - This practioner's guide explains how to promote gender-responsive forest tenure reform in community-based forest regimes
+                        It is designed t osupport a wide range of institutions such as government offices, non-governemental organizations, civil society organizations, donor agencies, women's
+                         organizations as well as networks and federations<br> <br>
+
+                        Read/Download a free copy :
+
+                      </p>
+                      <a href="https://www.cifor-icraf.org/knowledge/publication/7909/" class="btn btn-success" target="_blank">Download</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+
+    {% include 'partials/_footer.html' %}
+
+
+ {% endblock %}

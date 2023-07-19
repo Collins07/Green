@@ -1,0 +1,328 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Green Space </title>
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" >
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+
+   
+</head>
+<body>
+      
+      <main>
+
+         <!-- Navigation bar -->
+        {% include 'partials/_navbar.html' %}
+    
+
+
+        <!-- hero -->
+
+        <div style="background-color: white;" id="hero" class="container col-xxl-12 mt-3">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-5">
+                <img src="{% static 'img/tree14-removebg-preview.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="" width="800" height="750" loading="lazy">
+              </div>
+              <div class="col-lg-7">
+                  <h1 class=" fw-bold lh-1 mb-3"> 
+                    <span class="releaf">Re-leaf</span>  <img src="{% static 'img/leaff.jpg' %}" alt="" class="bi mt-4" width="65" height="37" role="img" > with accountability for sustainability
+                  </h1>
+                <p >Join Greenlead and be part of a revolutionary mission to save our planet. Experience a self-funding ecosystem where
+                  tree-planting groups thrive, turning their efforts into valuable carbon offsets. 
+                  Together, we can make a difference and create a greener future for generations to come. 
+                   See our latest updates on tree planting activities by various groups in Kenya, 
+                   our approach in incentivizing their carbon offset activities, our advanced analytics on sustainable 
+                   tree-planting practices and how we connect you to your preferred choice of seedlings.
+                  </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <a class="btn btn-success px-4 me-md-2" href="{% url 'reforest' %}">Summary Report</a>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          
+          <div  class="container col-xxl-12 mt-1">
+            <div class="row py-3 g-2">
+              <div id="wave" class="card border-success mb-3">               
+                <div class="card-body">
+                  <h4 id="title" class="card-title mb-2"></h4>
+                  <p> <span class=" fw-bold releaf1">GreenLead</span> offers the platform for environmental groups to be accountable in their tree planting initiatives by monitoring
+                    their activities and providing regular updates on their tree planting initiative. We strive to incentivize their carbon offsetting efforts by introducing them to the carbon markets, 
+                    earn and trade on the carbon credits they generate. This provides financial incentives for their reforestation & afforestation activities and as project developers they can generate 
+                    revenue that can be re-invested in sustaining and expanding their reforestation/afforestation efforts.
+                     
+                  </p>
+                  <p>Through our robust reporting system to monitor the ongoing performance of your carbon offset projects, we are able to calculate the estimated carbon sequestration capacity of these trees based on factors such as species, age, and growth rates.
+                    This includes periodic monitoring of tree growth and survival rates which in turn provides regular reports for demonstrating the progress and impact of the purchased offsets to the buyers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Roots to Routes -->
+
+          <div class="container " id="hanging-icons">
+            <h2  class="pb-2 border-bottom fw-bold">Routes to <span class="root">Roots</span></h2>
+            <div class="row g-3 py-4">
+
+              <div class="col-6 align-items-start">
+                <div>
+                  <h3 class="fs-5 fw-bold">Partnerships</h3>
+                  <p>Through partnerships, GreenLead accelerates its impact in forestation. By collaborating with organizations, institutions, and industries, we access resources, funding, and wider reach. 
+                    Together, we maximize tree planting, increase carbon offsets, and build a sustainable future. 
+                  </p>                 
+                </div>
+              </div>
+
+              <div class="col-6 align-items-start">
+                <div>
+                  <h3 class="fs-5 fw-bold">Marketing</h3>
+                  <p>
+                    Through marketing, GreenLead amplifies its mission of reforestation and carbon offsetting. By raising awareness, attracting potential buyers of carbon offsets,
+                    and showcasing our impact, we drive support, funding, and engagement. Join us in spreading the message and creating a greener world.
+                  </p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+
+
+          <div class="container px-4 " id="custom-cards">
+            <h2  class="pb-2 border-bottom fw-bold">Approach</h2>    
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
+              <div class="col">
+                <div id="image1" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 id="text1" class="pt-5 mt-2 mb-4 display-6 lh-1 fw-bold">Accountability</h3>
+                    <p class="fw-bold">To ensure trees planted are taken care of in order to have a big percentage of them reach maturity for the main goal of inreasing our forest cover</p>
+                  
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col">
+                <div id="image2" class="card card-cover h-100  overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3  id="text" class="pt-5 mt-2 mb-4 display-6 lh-1 fw-bold">Mobilisation</h3>
+                    <p class="fw-bold">To actively collaborate and partner with our organizations, institutions, companies, industries and groups</p>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col">
+                <div id="image3" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <h3 class="pt-5 mt-2 mb-4 display-6 lh-1 fw-bold">Business</h3>
+                    <p class="fw-bold">To identify potential buyers of carbon offsets and for companies and organizations
+                       who are interested in reducing their carbon footprint through offsetting.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container px-4 " id="custom-cards">
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 ">
+              <div class="col">
+                <div id="image4" class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 style="font-size: 35px;" class="pt-5 mt-2 mb-4 display-6 lh-1 fw-bold">Education</h3>
+                    <p  class="fw-bold">To involve learning instituitions in tree planting initiatives as a vital activity in teaching
+                      the next generations on the importance of protecting our forests
+                    </p>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col">
+                <div id="image5" class="card card-cover h-100  overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+                  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3  id="text" class="pt-5 mt-2 mb-4 display-6 lh-1 fw-bold">Restoration</h3>
+                    <p class="fw-bold">Push for businesses that use trees as raw materials to adopt our ' Routes to Roots ' initiative and indirectly be part of the this long journey towards
+                      increasing our green spaces.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How it Works -->
+          <div style="background-color: white;" id="hero" class="container col-xxl-8 mt-2">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div id="reforest" class="col-lg-12">
+                <h2 class=" fw-bold lh-1 mb-3"> 
+                     Lets conduct accountable <span class="releaf">Reforestation & Afforestation</span>  <img src="{% static 'img/grow2.jpg' %}" alt="" class="bi " width="60" height="47" role="img" >
+                </h2>
+                <p >
+                  It is only if the trees we plant reach maturity, then are we going to achieve our main goal of increasing our forest coverage. More often than not, out of all those trees planted
+                  only less than half manage to survive and this is ends up becoming a huge setback towards our goal. This happens due to our negligence after tree planting activity and the planted trees are left
+                  to the mercies and grace of nature for survival. We give this platform to the various groups in tree planting to register and record on their activities by visualizing the progress they make.
+                  
+                </p> 
+
+              </div>
+            </div>
+          </div>
+
+
+                 
+                      <!-- why join us -->
+
+                <div style="background-color: white;" id="hero" class="container col-xxl-8 mt-2">
+                  <div class="row flex-lg-row-reverse align-items-center g-5">
+                    <div id="reforest" class="col-lg-12">
+
+      
+                      <h3 class=" fw-bold lh-1 mb-3"> 
+                        Why register with us<span class="releaf"></span>  <img src="{% static 'img/money12.jpg' %}" alt="" class="bi " width="100" height="57" role="img" >
+                     </h3>
+      
+                      <p>
+                        GreenLead simplifies the process of generating reports and documentation for tree planting activities, facilitating transparency and accountability to stakeholders, donors and the public. On our platform as a tree planting group you:
+                        <ul class="list-unstyled text-center mt-5">
+                          <li class="d-flex m-1"><i class='bx bx-check-circle fs-3 fw-bold text-success'></i> Become eligible for funding opportunities and incentives based on your performance and impact.</li>
+                          <li class="d-flex m-1"><i class='bx bx-check-circle fs-3 fw-bold text-success'></i> Increase your visibility and exposure to potential supporters, partners and donors.</li>
+                          <li class="d-flex m-1"><i class='bx bx-check-circle fs-3 fw-bold text-success'></i> Enhance your credibility and trustworthiness in tree planting excercises, attracting more stakeholders and resources.</li>
+                          <li class="d-flex m-1"><i class='bx bx-check-circle fs-3 fw-bold text-success'></i> Monitor your performance and assess the impact of your initiatives through the platform's monitoring and reporting tools.</li>
+                          <li class="d-flex m-1"><i class='bx bx-check-circle fs-3 fw-bold text-success'></i> Can network and collaborate among tree planting groups, enabling partnership opportunities.</li>
+                        </ul>
+                      </p>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a class="btn btn-success px-4 me-md-2" href="{% url 'reforest' %}">Join Us</a>    
+                      </div>
+                    </div>
+                  </div>
+                </div>      
+
+
+
+
+          <div class="container">
+            <div class="row">
+              <h2  class="pb-2 border-bottom fw-bold">Agri<span class="root">culture</span></h2>  
+              <div class="row row-cols-1 row-cols-md-3 mb-3 text-center mt-2 py-2">
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm border-success">
+                    <div class="card-header py-3 text-bg-success border-success">
+                      <h4 class="my-0 fw-normal">Free Seedling Marketplace!!</h4>
+                    </div>
+                    <div class="card-body">
+                      <p>GreenLead offers you a platform to also get tree seedlings. Sell and purchase your preferred choice of seedling species.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  
+                  <div class="card mb-4 rounded-3 shadow-sm border-success" >
+                    <img src="{% static 'img/sell3.jpg' %}" class="  rounded-3" alt="" height="220px" loading="lazy">
+                    <div class="card-body">
+                      
+                      <a href="{% url 'farmer' %}" class="btn btn-success">Get Started</a>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm border-success">
+                    <div class="card-header py-3 text-bg-success border-success">
+                      <h4 class="my-0 fw-normal">Agricultural Education</h4>
+                    </div>
+                    <div class="card-body">
+                      
+                      <p>
+                        We also share resources and information on agricultural seminars and events where
+                        you can learn, interact and share. Find interesting events near your locality to attend.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <h2  class="pb-2 border-bottom fw-bold">Contact Us</h2>
+          </div>
+
+
+          <div id="container" class="container mt-3 mb-5">
+            
+            <div class="content">
+              <div class="left-side">
+                <div class="address details">
+                  <i class="fa fa-map-marker"></i>
+                  <div class="topic">Address</div>
+                  <div class="text-one">Nairobi, Kenya</div>
+                </div>
+                <div class="phone details">
+                  <i class="fa fa-phone"></i>
+                  <div class="topic">Phone</div>
+                  <div class="text-one">+254 718074023</div>
+                  <div class="text-two">+254 792016907</div>
+                </div>
+                <div class="email details"> 
+                  <i class="fa fa-envelope"></i>
+                  <div class="topic">Email</div>
+                  <div class="text-one">collinsabaya07@gmail.com</div>
+                  <div class="text-one">kokikeith@gmail.com</div>
+                </div>
+              </div>
+              <div class="right-side" >
+                <div class="topic-text">Send us a message</div>
+                <p>If you want to be part of this long journey towards accountable reforestation/afforestation and forest restoration,
+                  send us a message
+                </p>
+              <form action="#">
+                <div class="input-box">
+                  <input type="text" placeholder="Your name">
+                </div>
+                <div class="input-box">
+                  <input type="email" placeholder="Your email">
+                </div>
+                <div class="input-box message-box">
+                  <input type="text" placeholder="Message ">
+                </div>
+                <div class="button">
+                  <input type="button" value="Send" >
+                </div>
+              </form>
+            </div>
+            </div>
+          </div>
+
+
+
+          <!-- Footer -->
+
+            
+          {% include 'partials/_footer.html' %}
+
+    
+
+
+      </main>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
