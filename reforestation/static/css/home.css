@@ -307,10 +307,12 @@
 --------------------------------------------------------------*/
 .facts {
   padding-bottom: 30px;
+  box-shadow: green 0px 5px 15px;
+  
 }
 
 .facts .count-box {
-  padding: 20px;
+  padding: 10px;
   width: 100%;
 }
 
@@ -319,13 +321,13 @@
   font-size: 48px;
   line-height: 40px;
   font-weight: 700;
-  color: #050d18;
-  margin-left: 60px;
+  color: green;
+  margin-left: 20px;
 }
 
 .facts .count-box p {
   padding: 15px 0 0 0;
-  margin: 0 0 0 60px;
+  margin: 0 0 0 20px;
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   color: #122f57;

@@ -54,8 +54,7 @@
             </div>
           </div>
 
-          <span class="fw-bold fs-3">{{ total_trees }}</span>
-          <span class="fw-bold fs-3">{{ total_trees_accounted }}</span>
+          
           <div  class="container col-xxl-12 mt-1">
             <div class="row py-3 g-2">
               <div id="wave" class="card border-success mb-3">               
@@ -182,6 +181,64 @@
                 </p> 
 
               </div>
+            </div>
+          </div>
+
+
+          <!-- measured impact -->
+
+          <div class="container " id="hanging-icons">
+            <h2  class="pb-2 border-bottom fw-bold">Imp<span class="root">act</span></h2>
+            <div class="row g-3 py-4">
+
+              <!-- ======= Facts Section ======= -->
+                <section id="facts" class="facts">
+                  <div class="container p-2">
+
+                      <p>GreenLead's impact is driven by empowering reforestation efforts and fostering a sustainable future for our planet through collective action. </p>
+
+                    <div class="row no-gutters">
+                      
+                      <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="count-box">
+                          <i class="bi bi-journal-richtext"></i>
+                          <span>{{ paginator.count }}</span>
+                          <p><strong>Registered Groups</strong></p>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+                        <div class="count-box">
+                         
+                          <span>{{ total_trees }}</span>
+                          <p><strong>Trees Planted</strong> by registered groups</p>
+                        </div>
+                      </div>
+
+
+                      <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+                        <div class="count-box">
+                          <i class="bi bi-headset"></i>
+                          <span>{{ total_trees_accounted }}</span>
+                          <p><strong>Trees Accounted</strong> for by the goups</p>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div class="count-box">
+                          <i class="bi bi-people"></i>
+                          <span >400</span>
+                          <p><strong>Accountability score</strong> for all groups</p>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </section> 
+                
+         
             </div>
           </div>
 
