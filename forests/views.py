@@ -242,6 +242,17 @@ def difference(request):
      # Sort the diff_trees list based on the percentage in descending order
     diff_trees = sorted(diff_trees, key=itemgetter('percentage'), reverse=True)
 
+    # Calculate the cumulative percentage for each entry
+    total_trees_planted = first_entry_trees.aggregate(total_trees_planted=Sum('trees_planted'))
+
+    for entry in diff_trees:
+        entry['cumulative_percentage'] = entry['percentage'] / total_trees_planted['total_trees_planted'] * 100
+
+    # Calculate the average of all percentages
+    total_percentage = sum(entry['percentage'] for entry in diff_trees)
+    average_percentage = total_percentage / len(diff_trees)
+
+
     paginator = Paginator(diff_trees,5) 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -250,6 +261,7 @@ def difference(request):
     context = {
         'diff_trees': page_obj,
         'paginator': paginator,
+         'average_percentage': average_percentage,
     }
 
     return render(request, 'forests/difference.html', context)

@@ -1,15 +1,18 @@
+from operator import itemgetter
 from pyexpat import model
 from django.conf import settings
 from django.http import Http404, JsonResponse, HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required,permission_required
+
+from forests.views import calculate_trees_difference
 from .models import Category, Reforest
 from django.contrib import messages
 from django.core.paginator import Paginator
 import json
 import datetime
 import csv
-from django.db.models import Sum
+from django.db.models import Sum, F
 
 from xhtml2pdf import pisa
 from io import BytesIO
@@ -104,7 +107,27 @@ def add_trees(request):
 
 
 def home(request):
+    # Fetch data for the first and second entries
+    first_entry_trees = Reforest.objects.values('description').annotate(trees_planted=F('trees_planted')).order_by('description')
+    second_entry_trees = Forest.objects.values('description').annotate(trees_planted=F('trees_planted')).order_by('description')
 
+    # Calculate the trees difference using the function
+    diff_trees = calculate_trees_difference(first_entry_trees, second_entry_trees)
+
+    # Sort the diff_trees list based on the percentage in descending order
+    diff_trees = sorted(diff_trees, key=itemgetter('percentage'), reverse=True)
+
+    # Calculate the cumulative percentage for each entry
+    total_trees_planted = first_entry_trees.aggregate(total_trees_planted=Sum('trees_planted'))
+
+    for entry in diff_trees:
+        entry['cumulative_percentage'] = entry['percentage'] / total_trees_planted['total_trees_planted'] * 100
+
+    # Calculate the average of all percentages
+    total_percentage = sum(entry['percentage'] for entry in diff_trees)
+    average_percentage = total_percentage / len(diff_trees)
+
+    # Your existing code for the 'home' view function
     reforest = Reforest.objects.order_by('-date')
     total_trees = reforest.aggregate(total_trees_planted=Sum('trees_planted'))['total_trees_planted']
 
@@ -114,25 +137,21 @@ def home(request):
     highest_entry = reforest.order_by('-trees_planted').first()
     highest_group = highest_entry.description if highest_entry else None
 
-
-    
-
-    paginator=Paginator(reforest, 4)
+    paginator = Paginator(reforest, 4)
     page_number = request.GET.get('page')
-    page_obj= Paginator.get_page(paginator,page_number)
+    page_obj = paginator.get_page(page_number)
 
-    
     context = {
         'reforest': reforest,
         'page_obj': page_obj,
         'total_trees_accounted': total_trees_accounted,
         'total_trees': total_trees,
         'highest_group': highest_group,
-        'paginator': paginator
-      
-
+        'paginator': paginator,
+        'diff_trees': diff_trees,  # Add the calculated diff_trees
+        'total_trees_planted': total_trees_planted['total_trees_planted'],  # Add the total trees planted
+        'average_percentage': average_percentage,  # Add the calculated average percentage
     }
-
 
     return render(request, 'reforest/home.html', context)
 
