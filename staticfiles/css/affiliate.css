@@ -1,0 +1,36 @@
+#categories-dropdown{
+  margin-left: 5%;
+}
+#categories-dropdown > ul >li>a:hover{
+  background-color: rgb(163, 216, 163);
+  
+}
+#main-wrap{
+  overflow-x: auto;
+  overflow-y: scroll;
+  height: 700px;
+}
+#button1{
+  display: none;
+}
+
+
+
+@media (max-width: 600px) {
+  
+  #main-wrap{
+    overflow-x: auto;
+    overflow-y: scroll;
+    height: 500px;
+    margin: 7%;
+    width: auto;
+    box-shadow: rgb(82, 136, 82) 0px 3px 6px, rgb(143, 216, 143) 0px 3px 6px;
+  }
+  #button1{
+    display: block;
+  }
+  
+
+   
+
+}

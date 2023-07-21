@@ -1,0 +1,188 @@
+.photo{
+    width: 30px;
+    height: 30px;
+}
+
+#round{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+#size{
+    height: 300px;
+    width: 300px;
+}
+#searching{
+    margin-top: 10%;
+}
+#login1{
+    margin-left: -10%;
+    margin-top: 45%;
+}
+
+#main{
+   border: 2px solig green;
+}
+
+#side-nav-style{
+    height: 450px;
+    overflow: scroll;
+    width: 100%;
+    overflow-x: hidden;
+    border:  2px solid green;
+}
+#side-nav-farmers{
+    height: 550px;
+    overflow: scroll;
+    width: 100%;
+   border:  1px solid green;
+   box-shadow: rgb(120, 202, 120) 0px 13px 27px -5px, green 0px 8px 16px -8px;
+   margin-top: 50px;
+   overflow-x: hidden;
+   padding: 3%;
+}
+
+.active{
+    color: black;
+    font-weight: bold;
+}
+.side-nav-user{
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#visit-users{
+    margin-left: 5%;
+    font-weight: bold;
+
+}
+#nameof{
+    text-align: justify;
+}
+.usernamecolor{
+    color: green;
+    text-decoration-style: none;
+}
+.caption{
+    margin-left: 2%;
+    margin-bottom: 0;
+}
+.profilevisit{
+    height: 300px;
+    width: 300px;
+}
+a{
+    text-decoration: none;
+}
+#profile-section{
+    display: flex;
+}
+#profile-caption{
+    margin-left: 3%;
+}
+.username{
+    font-weight: bold;
+    margin-right: 2%;
+    font-size: 20px;
+    color: black;
+}
+#cog{
+    font-size: 25px;
+    margin-left: 2%;
+    color: green;
+  
+}
+a{
+   text-decoration: none;
+}
+#single-post{
+    box-shadow:green 0px 13px 27px -5px, green 0px 8px 16px -8px;
+}
+.single-post-username{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.main-post{
+    display: flex;
+}
+.user{
+    text-decoration: none;
+    margin-top: 5%;
+    margin-left: 1%;
+    font-weight: bold;
+}
+
+.post-time{
+    margin-left: 2%;
+    font-weight: bold;
+}
+#farmers-events{
+    padding: 7%;
+    margin-top: 5%;
+}
+#intro-farmer{
+   
+   display: none;
+
+}
+#seedlings-post{
+    margin-top: 2%;
+}
+#learn-btn{
+    display: none;
+}
+.account-img{
+  
+    margin-top: -2%;
+}
+
+.search-input{
+    box-shadow: rgba(7, 150, 38, 0.842) 0px 2px 8px 0px;
+  }
+
+
+@media (max-width: 768px) {
+      #userinfo{
+        display: none;
+      }
+      #side-nav-farmers{
+        height: 550px;
+        margin-bottom: 5%;
+        margin-top: 10px;
+        
+    }
+    #uploaded-image{
+        height: 100%;
+        width: 100%;
+    }
+    #learn{
+        display: inline-block;
+        margin: 2px;
+    }
+    
+   
+   
+    #learn-btn{
+        display: inline-block;
+    }
+    #intro-farmer{
+        display: block;
+        margin: 4%;
+        height: 100%;
+        width: 92%;
+        border: 1px solid rgb(186, 231, 157);
+        font-size: 17px;
+        border-radius: 45px 0px;
+        background: #DAD299;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #B0DAB9, #DAD299);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #B0DAB9, #DAD299); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    #seedlings-post{
+        margin-top: 1%;
+    }
+
+     
+  }
