@@ -32,10 +32,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'django-insecure-hx--5y&&3o!iqfopq3-fltv361677h!ezd*-^tqrveh4$_$1v6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
+    
     'green-lead.azurewebsites.net'
     ]
 
