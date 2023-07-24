@@ -36,7 +36,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     
-    'greenlead.azurewebsites.net'
+    'green-lead.azurewebsites.net'
     ]
 
 
