@@ -307,7 +307,7 @@
 --------------------------------------------------------------*/
 .facts {
   padding-bottom: 30px;
-  box-shadow: green 0px 5px 15px;
+  box-shadow: #008000 0px 5px 15px;
   ;
 }
 
@@ -343,9 +343,6 @@
   transition: ease-in-out 0.3s;
 }
 
-.facts .count-box a:hover {
-  color: #1f5297;
-}
 
 
 /* Contact form */
