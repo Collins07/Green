@@ -125,7 +125,7 @@ def home(request):
 
     # Calculate the average of all percentages
     total_percentage = sum(entry['percentage'] for entry in diff_trees)
-    average_percentage = total_percentage / len(diff_trees)
+    average_percentage = round(total_percentage / len(diff_trees), 2)
 
     # Your existing code for the 'home' view function
     reforest = Reforest.objects.order_by('-date')
