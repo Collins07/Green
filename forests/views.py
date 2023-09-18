@@ -67,7 +67,8 @@ def forest(request):
                 'description': description,
                 'trees_difference': second_entry_trees_planted - first_entry_trees_planted,
             })
-
+    total_trees = "{:,}".format(total_trees)
+    
 
     paginator=Paginator(forest, 4)
     page_number = request.GET.get('page')
@@ -124,44 +125,44 @@ def add_forest(request):
 
         return redirect('forest')
 
-    return render(request, 'forests/add_forest.html', context)
+    return render(request, 'forests/add_forest.html', context) 
 
 
 
-def forest_edit(request, id):
-    forest = get_object_or_404(Forest, pk=id, owner=request.user)
-    reasons = Reason.objects.all()
+# def forest_edit(request, id):
+#     forest = get_object_or_404(Forest, pk=id, owner=request.user)
+#     reasons = Reason.objects.all()
 
-    context = {
-        'forest': forest,
-        'values': forest,
-        'reasons': reasons
-    }
+#     context = {
+#         'forest': forest,
+#         'values': forest,
+#         'reasons': reasons
+#     }
 
-    if request.method == 'GET':
-        return render(request, 'forests/edit_forest.html', context)
+#     if request.method == 'GET':
+#         return render(request, 'forests/edit_forest.html', context)
     
-    if request.method == 'POST':
-        trees_planted = request.POST['trees_planted']
-        description = request.POST['description']
-        date = request.POST['date']
+#     if request.method == 'POST':
+#         trees_planted = request.POST['trees_planted']
+#         description = request.POST['description']
+#         date = request.POST['date']
 
-        if not trees_planted:
-            messages.error(request, 'Number of trees planted is required!')
-            return render(request, 'forests/edit_forest.html', context)
+#         if not trees_planted:
+#             messages.error(request, 'Number of trees planted is required!')
+#             return render(request, 'forests/edit_forest.html', context)
 
-        if not description:
-            messages.error(request, 'The name of your group is required!')
-            return render(request, 'forests/edit_forest.html', context)
+#         if not description:
+#             messages.error(request, 'The name of your group is required!')
+#             return render(request, 'forests/edit_forest.html', context)
 
-        forest.trees_planted = trees_planted
-        forest.description = description
-        forest.date = date
+#         forest.trees_planted = trees_planted
+#         forest.description = description
+#         forest.date = date
 
-        forest.save()
-        messages.success(request, 'Your data has been updated successfully')
+#         forest.save()
+#         messages.success(request, 'Your data has been updated successfully')
 
-        return redirect('forest')
+#         return redirect('forest')
 
 
 
@@ -227,7 +228,7 @@ def calculate_trees_difference(first_entry_trees, second_entry_trees):
             diff_trees.append({
                 'description': description,
                 'percentage': round(percentage, 2),
-                'trees_difference': difference,
+                'trees_difference': "{:,}".format(difference),
             })
     return diff_trees
 
@@ -261,7 +262,7 @@ def difference(request):
     context = {
         'diff_trees': page_obj,
         'paginator': paginator,
-         'average_percentage': average_percentage,
+        'average_percentage': average_percentage,
     }
 
     return render(request, 'forests/difference.html', context)

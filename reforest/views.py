@@ -23,6 +23,7 @@ from forests.models import Forest
 
 
 
+
 # Create your views here.
 def search_reforest(request):
     if request.method == 'POST':
@@ -45,7 +46,7 @@ def index(request):
     highest_entry = reforest.order_by('-trees_planted').first()
     highest_group = highest_entry.description if highest_entry else None
 
-
+    total_trees = "{:,}".format(total_trees)
     
 
     paginator=Paginator(reforest, 4)
@@ -57,7 +58,7 @@ def index(request):
         'reforest': reforest,
         'page_obj': page_obj,
         'total_trees': total_trees,
-        'highest_group': highest_group,
+        'highest_group': highest_group, 
         'paginator': paginator
       
 
@@ -127,12 +128,18 @@ def home(request):
     total_percentage = sum(entry['percentage'] for entry in diff_trees)
     average_percentage = round(total_percentage / len(diff_trees), 2)
 
+    
+
     # Your existing code for the 'home' view function
     reforest = Reforest.objects.order_by('-date')
     total_trees = reforest.aggregate(total_trees_planted=Sum('trees_planted'))['total_trees_planted']
 
     forest = Forest.objects.order_by('-date')
     total_trees_accounted = forest.aggregate(total_trees_planted=Sum('trees_planted'))['total_trees_planted']
+
+     # Format total_trees_accounted with commas
+    total_trees_accounted = "{:,}".format(total_trees_accounted)
+    total_trees = "{:,}".format(total_trees)
 
     highest_entry = reforest.order_by('-trees_planted').first()
     highest_group = highest_entry.description if highest_entry else None
@@ -192,7 +199,7 @@ def reforest_edit(request, id):
         
 
         reforest.owner=request.user
-        reforest.trees_planted=trees_planted
+        reforest.trees_planted= "{:,}".format(trees_planted)
         reforest.description=description
         reforest.date=date
         reforest.category=category
