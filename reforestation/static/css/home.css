@@ -52,7 +52,6 @@
   #logo{
     color: #008000;
     font-weight: bolder;
-    margin-left: 2%;
     font-size: 33px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
@@ -537,12 +536,12 @@
   }
  
  #logo{
-    font-size: 26px;
+    font-size: 25px;
 
  }
  #logo-img{
-  height: 53px;
-  width: 53px;
+  height: 51px;
+  width: 51px;
  }
  
 
